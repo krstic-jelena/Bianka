@@ -2,7 +2,8 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { profile } = props;
   return (
     <nav className="blue lighten-3">
       <div className="container">
@@ -33,7 +34,9 @@ const Navbar = () => {
 
 const mapStateToProps = (state) => {
   console.log(state);
-  return {};
+  return {
+    profile: state.firebase.profile,
+  };
 };
 
 export default connect(mapStateToProps)(Navbar);
